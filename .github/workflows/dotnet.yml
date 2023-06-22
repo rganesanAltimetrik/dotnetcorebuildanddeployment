@@ -37,7 +37,7 @@ jobs:
 
     - uses: rganesanAltimetrik/dotnetcorebuildanddeployment@master
       env:
-         GITHUB_TOKEN: ${{ sectrets.GITHUB_TOKEN }}
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
 
 
