@@ -1,2 +1,0 @@
-# dotnetcoredashboard
-dotnetcoredashboard
