@@ -41,5 +41,9 @@ jobs:
         format: 'markdown'
         output: 'both'    
 
+    - name: Report test-coverage to DeepSource
+      run: |
+       curl https://deepsource.io/cli | sh
+       DEEPSOURCE_DSN=https://15b8dc6aff5942d4acb74d75a698139d@app.deepsource.com ./bin//deepsource report --analyzer test-coverage --key csharp --value-file ./coverage/coverage.cobertura.xml
   
 
