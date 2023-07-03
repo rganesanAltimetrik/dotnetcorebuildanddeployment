@@ -20,26 +20,26 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
+        
     - name: Restore dependencies
       run: dotnet restore
+      
     - name: Build
       run: dotnet build --no-restore
-      
+       
     - name: Test
       run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
-            
+      
     - name: Copy Coverage to Predictable Location
       run: cp coverage/*/coverage.cobertura.xml coverage/coverage.cobertura.xml
-
+      
     - name: Code Coverage Summary Report
       uses: irongut/CodeCoverageSummary@v1.3.0
       with:
         filename: coverage/coverage.cobertura.xml
         badge: true
         format: 'markdown'
-        output: 'both'     
+        output: 'both'    
 
-    - name: Report test-coverage to DeepSource
-      run: |
-       curl https://deepsource.io/cli | sh
-       DEEPSOURCE_DSN=https://d6269f88abd640aa9f425812e037fd32@app.deepsource.com ./bin//deepsource report --analyzer test-coverage --key csharp --value-file ./coverage/coverage.cobertura.xml
+  
+
